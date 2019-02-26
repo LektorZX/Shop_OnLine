@@ -1,0 +1,111 @@
+create table online_store."user"
+(
+  id   SERIAL PRIMARY KEY,
+  name CHARACTER VARYING(128) UNIQUE NOT NULL,
+  password CHARACTER VARYING(128) NOT NULL,
+  role CHARACTER VARYING(28)  NOT NULL
+)
+;
+
+create table online_store.user_detail
+(
+  id  SERIAL PRIMARY KEY,
+  user_id bigint UNIQUE NOT NULL REFERENCES online_store."user"(id),
+  email CHARACTER VARYING(128) NOT NULL
+)
+;
+
+create table online_store.basket
+(
+  order_id SERIAL PRIMARY KEY,
+  data date,
+  total_sum numeric(19,2),
+  user_id bigint references online_store."user"(id) not null
+)
+;
+
+create table  online_store."order"
+(
+  order_id bigint not null
+    constraint order_pkey
+    primary key,
+  id_product bigint
+)
+;
+
+create table online_store.product
+(
+  id   SERIAL PRIMARY KEY,
+  amount bigint NOT NULL,
+  name CHARACTER VARYING(128) NOT NULL,
+  origin CHARACTER VARYING(128) NOT NULL,
+  price numeric(19,2) NOT NULL,
+  remark varchar(255)
+)
+;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////**********************************
+
+
+create table if not exists online_store."user"
+(
+	id serial not null
+		constraint user_pkey
+			primary key,
+	name varchar(128) not null
+		constraint user_name_key
+			unique,
+	password varchar(128) not null,
+	role varchar(28) not null
+)
+;
+
+create table if not exists online_store.user_detail
+(
+	id serial not null
+		constraint user_detail_pkey
+			primary key,
+	user_id bigint not null
+		constraint user_detail_user_id_key
+			unique
+		constraint user_detail_user_id_fkey
+			references "user",
+	email varchar(128) not null
+)
+;
+
+create table if not exists online_store.basket
+(
+	order_id serial not null
+		constraint basket_pkey
+			primary key,
+	data date,
+	total_sum numeric(19,2),
+	user_id bigint not null
+		constraint basket_user_id_fkey
+			references "user"
+)
+;
+
+create table if not exists online_store."order"
+(
+	order_id bigint not null
+		constraint order_pkey
+			primary key,
+	id_product bigint
+)
+;
+
+create table if not exists online_store.product
+(
+	id serial not null
+		constraint product_pkey
+			primary key,
+	amount bigint not null,
+	name varchar(128) not null,
+	origin varchar(128) not null,
+	price numeric(19,2) not null,
+	remark varchar(255)
+)
+;
+
+
