@@ -3,7 +3,6 @@ package root.model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -16,12 +15,10 @@ import javax.persistence.Table;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 @Builder
 @Entity
 @Table(name = "order", schema = "Online_Store")
 public class Order {
-
     @EmbeddedId
     private BasketEmbeddedId basket;
     @Column(name = "id_product")

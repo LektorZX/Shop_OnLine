@@ -1,6 +1,8 @@
 package root;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import root.DTO.BasketDto;
+import root.DTO.BasketDtoId;
 import root.DTO.ProductDto;
 import root.DTO.UserDto;
 import root.configuration.ApplicationConfiguration;
@@ -9,6 +11,7 @@ import root.model.Role;
 import root.model.User;
 import root.model.UserDetail;
 import root.repository.userRepo.CustomUserRepositoryImpl;
+import root.service.BasketServiceImpl;
 import root.service.UserServiceImpl;
 import org.springframework.test.context.ContextConfiguration;
 import root.service.ProductServiceImpl;
@@ -16,6 +19,8 @@ import root.utils.DatabaseHelper;
 import root.utils.DtoConverter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,11 +35,47 @@ public class AppRunner {
 //        userTest(context);+++
 //        ProductTest(context);+++
 //        TestConvertDTO(context);+++
+//        testBasket(context);
+
+        BasketServiceImpl basketServiceImpl = (BasketServiceImpl) context.getBean("basketServiceImpl");
+        List<Product> oneListProdutsByOrderId = basketServiceImpl.findOneListProdutsByOrderId(7l);
+        for (Product product : oneListProdutsByOrderId) {
+            System.out.println(product);
+        }
 
 
+    }
+
+    private static void testBasket(AnnotationConfigApplicationContext context) {
+        BasketServiceImpl basketServiceImpl = (BasketServiceImpl) context.getBean("basketServiceImpl");
+        //проверка создание ордера+++
+//        for (int i = 0; i < 5; i++) {
+//            List<Long> productId2=new ArrayList<>();
+//            productId2.add(5L);
+//            productId2.add(6L);
+//            productId2.add(7L);
+//            productId2.add(8L);
+//            productId2.add(9L);
+//            productId2.add(2L);
+//            productId2.add(3L);
+//            productId2.add(4L);
+//            basketServiceImpl.save(BasketDto.builder()
+//                    .userId(4L)
+//                    .localDate(LocalDate.now())
+//                    .sum(BigDecimal.valueOf(999))
+//                    .productId(productId2)
+//                    .build());
+//        }
 
 
+//удаление работает+++
+//        basketServiceImpl.deleteById(5l);
 
+        //список всех заказов юзера по айди юзера+++
+        List<BasketDtoId> byIdUserInBasket = basketServiceImpl.findByIdUserInBasket(7l);
+        for (BasketDtoId basketDtoId : byIdUserInBasket) {
+            System.out.println(basketDtoId);
+        }
     }
 
     private static void TestConvertDTO(AnnotationConfigApplicationContext context) {

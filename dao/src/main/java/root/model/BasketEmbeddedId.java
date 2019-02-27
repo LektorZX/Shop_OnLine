@@ -17,5 +17,5 @@ import java.io.Serializable;
 public class BasketEmbeddedId implements Serializable {
 
     @Column(name = "order_id")
-    private Long orderId;
+    private Long id;
 }

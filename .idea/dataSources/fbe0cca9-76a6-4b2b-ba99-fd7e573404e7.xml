@@ -64,8 +64,8 @@
     </schema>
     <schema id="14" parent="3" name="online_store">
       <ObjectId>41087</ObjectId>
-      <IntrospectionTimestamp>2019-02-25.16:27:27.998</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1967</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-02-27.20:01:19.447</IntrospectionTimestamp>
+      <IntrospectionStateNumber>2188</IntrospectionStateNumber>
       <Visible>1</Visible>
     </schema>
     <schema id="15" parent="3" name="pg_catalog">
@@ -126,58 +126,58 @@
       <Type>index</Type>
     </access-method>
     <sequence id="25" parent="14" name="basket_order_id_seq">
-      <ObjectId>41371</ObjectId>
-      <StateNumber>1965</StateNumber>
+      <ObjectId>41554</ObjectId>
+      <StateNumber>2187</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="26" parent="14" name="product_id_seq">
-      <ObjectId>41389</ObjectId>
-      <StateNumber>1967</StateNumber>
+      <ObjectId>41529</ObjectId>
+      <StateNumber>2067</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="27" parent="14" name="user_detail_id_seq">
-      <ObjectId>41356</ObjectId>
-      <StateNumber>1964</StateNumber>
+      <ObjectId>41501</ObjectId>
+      <StateNumber>2065</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <sequence id="28" parent="14" name="user_id_seq">
-      <ObjectId>41346</ObjectId>
-      <StateNumber>1963</StateNumber>
+      <ObjectId>41491</ObjectId>
+      <StateNumber>2064</StateNumber>
       <SequenceIdentity>1..2147483647</SequenceIdentity>
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
     <table id="29" parent="14" name="basket">
-      <ObjectId>41373</ObjectId>
-      <StateNumber>1965</StateNumber>
+      <ObjectId>41556</ObjectId>
+      <StateNumber>2188</StateNumber>
     </table>
     <table id="30" parent="14" name="order">
-      <ObjectId>41384</ObjectId>
-      <StateNumber>1966</StateNumber>
+      <ObjectId>41567</ObjectId>
+      <StateNumber>2188</StateNumber>
     </table>
     <table id="31" parent="14" name="product">
-      <ObjectId>41391</ObjectId>
-      <StateNumber>1967</StateNumber>
+      <ObjectId>41531</ObjectId>
+      <StateNumber>2188</StateNumber>
     </table>
     <table id="32" parent="14" name="user">
-      <ObjectId>41348</ObjectId>
-      <StateNumber>1965</StateNumber>
+      <ObjectId>41493</ObjectId>
+      <StateNumber>2187</StateNumber>
     </table>
     <table id="33" parent="14" name="user_detail">
-      <ObjectId>41358</ObjectId>
-      <StateNumber>1964</StateNumber>
+      <ObjectId>41503</ObjectId>
+      <StateNumber>2065</StateNumber>
     </table>
     <column id="34" parent="29" name="order_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1965</StateNumber>
+      <StateNumber>2187</StateNumber>
       <DefaultExpression>nextval(&apos;online_store.basket_order_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>online_store.basket_order_id_seq</SequenceName>
@@ -185,37 +185,37 @@
     <column id="35" parent="29" name="data">
       <Position>2</Position>
       <DataType>date|0s</DataType>
-      <StateNumber>1965</StateNumber>
+      <StateNumber>2187</StateNumber>
       <TypeId>1082</TypeId>
     </column>
     <column id="36" parent="29" name="total_sum">
       <Position>3</Position>
       <DataType>numeric(19,2 digit)|0s</DataType>
-      <StateNumber>1965</StateNumber>
+      <StateNumber>2187</StateNumber>
       <TypeId>1700</TypeId>
     </column>
     <column id="37" parent="29" name="user_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1965</StateNumber>
+      <StateNumber>2187</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <index id="38" parent="29" name="basket_pkey">
-      <ObjectId>41377</ObjectId>
+      <ObjectId>41560</ObjectId>
       <ColNames>order_id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="39" parent="29" name="basket_pkey">
-      <ObjectId>41378</ObjectId>
+      <ObjectId>41561</ObjectId>
       <ColNames>order_id</ColNames>
       <UnderlyingIndexName>basket_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <foreign-key id="40" parent="29" name="basket_user_id_fkey">
-      <ObjectId>41379</ObjectId>
+      <ObjectId>41562</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>41348</RefTableId>
+      <RefTableId>41493</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>user</RefTableName>
       <RefKeyName>user_pkey</RefKeyName>
@@ -223,33 +223,40 @@
     </foreign-key>
     <column id="41" parent="30" name="order_id">
       <Position>1</Position>
-      <DataType>bigint|0s</DataType>
+      <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1966</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>2188</StateNumber>
+      <TypeId>23</TypeId>
     </column>
     <column id="42" parent="30" name="id_product">
       <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-      <StateNumber>1966</StateNumber>
-      <TypeId>20</TypeId>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2188</StateNumber>
+      <TypeId>23</TypeId>
     </column>
-    <index id="43" parent="30" name="order_pkey">
-      <ObjectId>41387</ObjectId>
+    <foreign-key id="43" parent="30" name="order_order_id_fkey">
+      <ObjectId>41570</ObjectId>
       <ColNames>order_id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="44" parent="30" name="order_pkey">
-      <ObjectId>41388</ObjectId>
-      <ColNames>order_id</ColNames>
-      <UnderlyingIndexName>order_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
+      <RefTableId>41556</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>basket</RefTableName>
+      <RefKeyName>basket_pkey</RefKeyName>
+      <RefColNames>order_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="44" parent="30" name="order_id_product_fkey">
+      <ObjectId>41575</ObjectId>
+      <ColNames>id_product</ColNames>
+      <RefTableId>41531</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>product</RefTableName>
+      <RefKeyName>product_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
     <column id="45" parent="31" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <DefaultExpression>nextval(&apos;online_store.product_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>online_store.product_id_seq</SequenceName>
@@ -258,43 +265,43 @@
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="47" parent="31" name="name">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="48" parent="31" name="origin">
       <Position>4</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="49" parent="31" name="price">
       <Position>5</Position>
       <DataType>numeric(19,2 digit)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <TypeId>1700</TypeId>
     </column>
     <column id="50" parent="31" name="remark">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
-      <StateNumber>1967</StateNumber>
+      <StateNumber>2067</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="51" parent="31" name="product_pkey">
-      <ObjectId>41398</ObjectId>
+      <ObjectId>41538</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="52" parent="31" name="product_pkey">
-      <ObjectId>41399</ObjectId>
+      <ObjectId>41539</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>product_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -303,7 +310,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1963</StateNumber>
+      <StateNumber>2064</StateNumber>
       <DefaultExpression>nextval(&apos;online_store.user_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>online_store.user_id_seq</SequenceName>
@@ -312,41 +319,41 @@
       <Position>2</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1963</StateNumber>
+      <StateNumber>2064</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="55" parent="32" name="password">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1963</StateNumber>
+      <StateNumber>2064</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="56" parent="32" name="role">
       <Position>4</Position>
       <DataType>varchar(28)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1963</StateNumber>
+      <StateNumber>2064</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="57" parent="32" name="user_pkey">
-      <ObjectId>41352</ObjectId>
+      <ObjectId>41497</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="58" parent="32" name="user_name_key">
-      <ObjectId>41354</ObjectId>
+      <ObjectId>41499</ObjectId>
       <ColNames>name</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="59" parent="32" name="user_pkey">
-      <ObjectId>41353</ObjectId>
+      <ObjectId>41498</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <key id="60" parent="32" name="user_name_key">
-      <ObjectId>41355</ObjectId>
+      <ObjectId>41500</ObjectId>
       <ColNames>name</ColNames>
       <UnderlyingIndexName>user_name_key</UnderlyingIndexName>
     </key>
@@ -354,7 +361,7 @@
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1964</StateNumber>
+      <StateNumber>2065</StateNumber>
       <DefaultExpression>nextval(&apos;online_store.user_detail_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
       <SequenceName>online_store.user_detail_id_seq</SequenceName>
@@ -363,41 +370,41 @@
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1964</StateNumber>
+      <StateNumber>2065</StateNumber>
       <TypeId>20</TypeId>
     </column>
     <column id="63" parent="33" name="email">
       <Position>3</Position>
       <DataType>varchar(128)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1964</StateNumber>
+      <StateNumber>2065</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="64" parent="33" name="user_detail_pkey">
-      <ObjectId>41362</ObjectId>
+      <ObjectId>41507</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <index id="65" parent="33" name="user_detail_user_id_key">
-      <ObjectId>41364</ObjectId>
+      <ObjectId>41509</ObjectId>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="66" parent="33" name="user_detail_pkey">
-      <ObjectId>41363</ObjectId>
+      <ObjectId>41508</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_detail_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <key id="67" parent="33" name="user_detail_user_id_key">
-      <ObjectId>41365</ObjectId>
+      <ObjectId>41510</ObjectId>
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>user_detail_user_id_key</UnderlyingIndexName>
     </key>
     <foreign-key id="68" parent="33" name="user_detail_user_id_fkey">
-      <ObjectId>41366</ObjectId>
+      <ObjectId>41511</ObjectId>
       <ColNames>user_id</ColNames>
-      <RefTableId>41348</RefTableId>
+      <RefTableId>41493</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>user</RefTableName>
       <RefKeyName>user_pkey</RefKeyName>

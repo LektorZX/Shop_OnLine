@@ -1,6 +1,7 @@
 package root.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.Column;
@@ -14,10 +15,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "of")
 @Entity
-//@Embeddable
 @Table(name = "basket", schema = "Online_Store")
 public class Basket {
 
@@ -25,7 +26,6 @@ public class Basket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
-
     @Column(name = "user_id")
     private Long userId;
     @Column(name = "data")

@@ -2,14 +2,20 @@ package root.utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import root.DTO.BasketDto;
+import root.DTO.BasketDtoId;
 import root.DTO.ProductDto;
 import root.DTO.UserDto;
+import root.model.Basket;
 import root.model.Product;
 import root.model.Role;
 import root.model.User;
 import root.model.UserDetail;
 
+import javax.persistence.Column;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DtoConverter {
@@ -53,6 +59,25 @@ public class DtoConverter {
                 .amount(product.getAmount())
                 .build();
     }
+    public Basket BasketDtoConvertToBasket(BasketDto basketDto){
+       return Basket.builder()
+                .userId(basketDto.getUserId())
+                .localDate(basketDto.getLocalDate())
+                .sum(basketDto.getSum())
+                .build();
+    }
+
+    public BasketDtoId BasketConvertToBasketDtoId(Basket basket, List<Long> productId){
+        return BasketDtoId.builder()
+                .id(basket.getId())
+                .productId(productId)
+                .userId(basket.getUserId())
+                .localDate(basket.getLocalDate())
+                .sum(basket.getSum())
+                .build();
+    }
+
+
 
 
 }
