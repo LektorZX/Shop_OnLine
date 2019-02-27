@@ -1,6 +1,7 @@
 package root.service;
 
 import lombok.Data;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import root.DTO.BasketDto;
@@ -15,9 +16,13 @@ import root.repository.productRepo.ProductRepository;
 import root.utils.DtoConverter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
 @Data
 @Service
 public class BasketServiceImpl implements BaseService<BasketDto, Long> {
@@ -65,11 +70,13 @@ public class BasketServiceImpl implements BaseService<BasketDto, Long> {
     public List<Product>findOneListProdutsByOrderId(Long idOrder){
         List<Long> productId =orderRepository.customFindAllByBasket(idOrder);
         List<Product> products=new ArrayList<>();
-
-
-        for (int i = 0; i < productId.size(); i++) {
-            Optional<Product> byId = productService.findById(productId.get(i));
-            products.add(byId.get());
+        String s = productId.toString();
+        s = s.replaceAll(" ", "");
+        s = s.substring(1, s.length()-1);
+        String s1 [] = s.split(",");
+        for (int i = 0; i < s1.length; i++) {
+            Optional<Product> byId = productService.findById(Long.parseLong(s1[i]));
+            byId.ifPresent(val -> products.add(byId.get()));
         }
         return products;
     }

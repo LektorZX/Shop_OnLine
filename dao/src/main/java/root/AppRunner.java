@@ -37,11 +37,6 @@ public class AppRunner {
 //        TestConvertDTO(context);+++
 //        testBasket(context);
 
-        BasketServiceImpl basketServiceImpl = (BasketServiceImpl) context.getBean("basketServiceImpl");
-        List<Product> oneListProdutsByOrderId = basketServiceImpl.findOneListProdutsByOrderId(7l);
-        for (Product product : oneListProdutsByOrderId) {
-            System.out.println(product);
-        }
 
 
     }
@@ -67,6 +62,12 @@ public class AppRunner {
 //                    .build());
 //        }
 
+
+        //вывод списка товаров по одному оредеру+++
+        List<Product> oneListProdutsByOrderId = basketServiceImpl.findOneListProdutsByOrderId(7l);
+        for (Product product : oneListProdutsByOrderId) {
+            System.out.println(product);
+        }
 
 //удаление работает+++
 //        basketServiceImpl.deleteById(5l);
